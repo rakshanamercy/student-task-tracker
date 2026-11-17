@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Task Tracker | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">ST</div>
+
+                <div>
+                    <h2>StudyTrack</h2>
+                    <p>Student Workspace</p>
+                </div>
+            </div>
+
+            <nav class="side-nav">
+
+                <a class="nav-link active" href="#">
+                    Dashboard
+                </a>
+
+                <a class="nav-link" href="#tasks">
+                    My Tasks
+                </a>
+
+                <a class="nav-link" href="#add-task">
+                    Add New Task
+                </a>
+
+            </nav>
+
+            <div class="sidebar-note">
+                <p class="note-title">Stay Focused!</p>
+
+                <p>
+                    Small steps every day lead to big results.
+                </p>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Navigation -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">STUDENT WORKSPACE</p>
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div class="profile">
+
+                    <div class="avatar">S</div>
+
+                    <div>
+                        <strong>Student</strong>
+                        <span>My Account</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="eyebrow">
+                        YOUR PRODUCTIVITY SPACE
+                    </p>
+
+                    <h2>Welcome back, Student!</h2>
+
+                    <p>
+                        Plan your work, track your progress
+                        and stay organized.
+                    </p>
+
+                </div>
+
+                <a class="primary-link" href="#add-task">
+                    + Add a Task
+                </a>
+
+            </section>
+
+
+            <!-- Dashboard Summary Cards -->
+            <section class="stats-grid">
+
+                <article class="stat-card">
+
+                    <p class="stat-label">Total Tasks</p>
+
+                    <h3>12</h3>
+
+                    <p class="stat-caption">
+                        All tasks in your workspace
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <p class="stat-label">Pending Tasks</p>
+
+                    <h3>05</h3>
+
+                    <p class="stat-caption">
+                        Tasks waiting to be completed
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <p class="stat-label">Completed Tasks</p>
+
+                    <h3>07</h3>
+
+                    <p class="stat-caption">
+                        Tasks successfully finished
+                    </p>
+
+                </article>
+
+            </section>
+
+
+            <!-- Dashboard Content -->
+            <section class="content-grid">
+
+
+                <!-- Recent Tasks -->
+                <div class="panel task-panel" id="tasks">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <p class="eyebrow">WORK OVERVIEW</p>
+                            <h2>Recent Tasks</h2>
+                        </div>
+
+                        <span class="small-label">
+                            Sample Data
+                        </span>
+
+                    </div>
+        
+
+                    <div class="task-row">
+
+                        <div>
+                            <h3>Complete Python Assignment</h3>
+
+                            <p>Due: 18 November 2026</p>
+                        </div>
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                    </div>
+
+
+                    <div class="task-row">
+
+                        <div>
+                            <h3>Prepare Project Presentation</h3>
+
+                            <p>Due: 20 November 2026</p>
+                        </div>
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+                    <div class="task-row">
+
+                        <div>
+                            <h3>Revise Database Concepts</h3>
+
+                            <p>Due: 22 November 2026</p>
+                        </div>
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                    </div>
+
+                    <div id="task-list"></div>
+                
+                </div>
+
+
+                <!-- Add Task Form -->
+                <div class="panel form-panel" id="add-task">
+
+                    <p class="eyebrow">PLAN YOUR WORK</p>
+
+                    <h2>Add a New Task</h2>
+
+                    <p class="form-description">
+                        Enter your task details below.
+                    </p>
+
+
+                    <form action="#" method="get">
+
+                        <label for="task-title">
+                            Task Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="task-title"
+                            name="task_title"
+                            placeholder="Enter task title"
+                        >
+
+
+                        <label for="task-date">
+                            Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="task-date"
+                            name="due_date"
+                        >
+
+
+                        <label for="task-priority">
+                            Priority
+                        </label>
+
+                        <select
+                            id="task-priority"
+                            name="priority"
+                        >
+
+                            <option value="">
+                                Select Priority
+                            </option>
+
+                            <option value="low">Low</option>
+
+                            <option value="medium">Medium</option>
+
+                            <option value="high">High</option>
+
+                        </select>
+
+
+                        <button type="button"
+
+                         class="submit-button"
+
+                         id="save-task-btn">
+
+                         Save Task
+
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="footer">
+
+                <p>
+                    Student Task Tracker |
+                    Ether Infotech Full Stack Internship
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
